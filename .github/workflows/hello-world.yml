@@ -5,6 +5,9 @@
 #...................
 
 name: hello-world
+env:
+  APL_NAME: "myFlask"
+  PACKAGE_NAME: "flask_deploy_version-${{ github.sha}}"
 
 on:
   push:
@@ -27,3 +30,8 @@ jobs:
     steps:
       - name: Print Hello message
         run: echo "Hello World!"
+        
+      - name: Package
+        run: |
+          echo "hello message1"
+          echo "Name: ${{ env.PACKAGE_NAME}}"
